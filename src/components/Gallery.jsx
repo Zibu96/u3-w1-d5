@@ -1,5 +1,8 @@
 import { Component } from "react";
 import { Alert, Col, Figure, Row, Spinner } from "react-bootstrap";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 class Gallery extends Component {
   state = {
@@ -34,15 +37,22 @@ class Gallery extends Component {
     this.GalleryFetch();
   }
   render() {
+    const settings = {
+      infinite: true,
+      speed: 500,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+    };
+
     return (
-      <Row xs={1} sm={2} md={4} lg={6}>
+      <Slider {...settings} className="ms-5 me-5">
         {this.state.isLoading && <Spinner animation="border" variant="info" />}
         {this.state.isError && (
           <Alert variant="danger">
             Ci scusciamo ma non siamo in grado di caricare i contenuti
           </Alert>
         )}
-        {this.state.films.slice(0, 6).map((film) => {
+        {this.state.films.map((film) => {
           return (
             <Col key={`film n ${film.imdbID}  `}>
               <Figure>
@@ -56,7 +66,7 @@ class Gallery extends Component {
             </Col>
           );
         })}
-      </Row>
+      </Slider>
     );
   }
 }

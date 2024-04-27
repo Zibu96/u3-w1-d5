@@ -43,7 +43,12 @@ a {
 body {
   background-color: #221f1f;
 }
-
+.slick-slider {
+  width: 90%;
+}
+footer {
+  width: 99%;
+}
 h2,
 h4,
 footer {

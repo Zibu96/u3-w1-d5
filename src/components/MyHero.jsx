@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Container, Dropdown } from "react-bootstrap";
+import { Container, Dropdown, Row } from "react-bootstrap";
 // import GalleryFirst from "./GalleryFirst";
 // import GallerySecond from "./GallerySecond";
 // import GalleryThird from "./GalleryThird";
@@ -35,12 +35,14 @@ class MyHero extends Component {
             <i className="bi bi-grid-3x3 icons"></i>
           </div>
         </div>
-        <h4>Trending Now</h4>
-        <Gallery film="harry potter" />
-        <h4>Watch It Again</h4>
-        <Gallery film="pirates of the caribbean" />
-        <h4>New Releases</h4>
-        <Gallery film="star wars" />
+        <Row>
+          <h4>Trending Now</h4>
+          <Gallery film="harry potter" />
+          <h4>Watch It Again</h4>
+          <Gallery film="pirates of the caribbean" />
+          <h4>New Releases</h4>
+          <Gallery film="star wars" />
+        </Row>
       </Container>
     );
   }
