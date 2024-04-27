@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Alert, Col, Figure, Row, Spinner } from "react-bootstrap";
+import { Alert, Col, Figure, Spinner } from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -37,11 +37,35 @@ class Gallery extends Component {
     this.GalleryFetch();
   }
   render() {
-    const settings = {
+    let settings = {
       infinite: true,
       speed: 500,
       slidesToShow: 5,
       slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            infinite: true,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 576,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
     };
 
     return (
